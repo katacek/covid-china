@@ -40,15 +40,19 @@ Apify.main(async () =>
         const seriousCount = $('span:contains(seriousCount)').next().text()
 
         const data = {
+            infected: confirmedCount,
+            recovered: curedCount,
+            tested: "N/A",
+            deceased: deadCount,
             currentConfirmedCount: currentConfirmedCount,
-            confirmedCount: confirmedCount,
             suspectedCount: suspectedCount,
-            curedCount: curedCount,
-            deadCount: deadCount,
             seriousCount: seriousCount,
+            country: "China",
+            historyData: "https://api.apify.com/v2/datasets/LQHrXhGe0EhnCFeei/items?format=json&clean=1",
             sourceUrl:'https://github.com/BlankerL/DXY-COVID-19-Data/blob/master/json/DXYOverall.json',
             lastUpdatedAtApify: new Date(Date.UTC(now.getFullYear(), now.getMonth(), now.getDate(), now.getHours(), now.getMinutes())).toISOString(),
-            readMe: 'https://github.com/katacek/covid-china/blob/master/README.md',
+            lastUpdatedAtSource: "N/A",
+            readMe: 'https://apify.com/katerinahronik/covid-china',
             };
         return data;
         
