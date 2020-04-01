@@ -60,7 +60,7 @@ Apify.main(async () =>
 
     console.log(result)
        
-    if ( !result.currentConfirmedCount ) {
+    if ( !result.infected ) {
                  check = true;
              }
         
