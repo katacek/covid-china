@@ -7,8 +7,8 @@ let check = false;
 Apify.main(async () =>
 {
 
-    const kvStore = await Apify.openKeyValueStore('COVID-19-CHINA');
-    const dataset = await Apify.openDataset('COVID-19-CHINA-HISTORY');
+    const kvStore = await Apify.openKeyValueStore('COVID-19-CHINA-TEST');
+    const dataset = await Apify.openDataset('COVID-19-CHINA-HISTORY-TEST');
     const { email } = await Apify.getValue('INPUT');
 
 
@@ -32,12 +32,12 @@ Apify.main(async () =>
         const now = new Date();
         // text() method sets or returns the text content of the selected elements
                 
-        const currentConfirmedCount = $('span:contains(currentConfirmedCount)').next().text()
-        const confirmedCount = $('span:contains(confirmedCount)').next().text()
-        const suspectedCount = $('span:contains(suspectedCount)').next().text()
-        const curedCount = $('span:contains(curedCount)').next().text()
-        const deadCount = $('span:contains(deadCount)').next().text()
-        const seriousCount = $('span:contains(seriousCount)').next().text()
+        const currentConfirmedCount = $('span:contains(currentConfirmedCount)').eq(0).next().text()
+        const confirmedCount = $('span:contains(confirmedCount)').eq(0).next().text()
+        const suspectedCount = $('span:contains(suspectedCount)').eq(0).next().text()
+        const curedCount = $('span:contains(curedCount)').eq(0).next().text()
+        const deadCount = $('span:contains(deadCount)').eq(0).next().text()
+        const seriousCount = $('span:contains(seriousCount)').eq(0).next().text()
 
         const data = {
             infected: confirmedCount,
